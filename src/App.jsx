@@ -25,7 +25,7 @@ function App() {
     }
   };
   return (
-    <div className="container mx-auto md:w-[90%] w-[90%]">
+    <div className="container mx-auto md:w-[90%] w-[90%] h-[100vh]">
       <h1 className="py-20 text-3xl font-bold text-center">
         Car ShortList Assistant
       </h1>
