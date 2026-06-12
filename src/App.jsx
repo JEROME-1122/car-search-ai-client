@@ -13,7 +13,7 @@ function App() {
 
   const getCars = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/recommend", {
+      const res = await axios.post("https://car-search-ai-server-1.onrender.com/recommend", {
         budget,
         fuel,
         priority,
@@ -72,7 +72,7 @@ function App() {
         {cars.map((cars) => {
           return (
             <div
-              className=" bg-white p-5 drop-shadow-2xl w-[45%] h-auto rounded"
+              className=" bg-white p-5 drop-shadow-2xl w-[30%] h-auto rounded"
               key={cars.id}
             >
               <h3 className="font-bold text-lg">{cars.name}</h3>
