@@ -8,6 +8,9 @@ function App() {
   const [cars, setCars] = useState([]);
   const onHandlerSubmit = (e) => {
     e.preventDefault();
+     setBudget("");
+    setFuel("Petrol");
+    setPriority("Mileage");
     console.log(budget, fuel, priority);
   };
 
@@ -72,13 +75,46 @@ function App() {
         {cars.map((cars) => {
           return (
             <div
-              className=" bg-white p-5 drop-shadow-2xl w-[30%] h-auto rounded"
+              className=" bg-white p-5 drop-shadow-2xl w-[30%] h-auto rounded-3xl"
               key={cars.id}
             >
-              <h3 className="font-bold text-lg">{cars.name}</h3>
-              <p>Price : {cars.price}</p>
-              <p>Mileage : {cars.mileage}</p>
-              <p>Safety : {cars.safety}</p>
+              <div className="h-40 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center">
+                <h2 className="text-3xl font-bold text-white">
+                  🚗 {cars.name}
+                </h2>
+              </div>
+
+              <div className="p-6 bg-white">
+                <div className="flex justify-between items-center mb-5">
+                  <span className="bg-green-100 text-green-700 px-4 py-1 rounded-full font-semibold">
+                    {cars.fuel}
+                  </span>
+
+                  <span className="text-yellow-500 text-lg">
+                    ⭐ {cars.safety}/5
+                  </span>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex justify-between bg-slate-100 p-3 rounded-xl">
+                    <span>💰 Price</span>
+                    <span className="font-bold text-green-600">
+                      ₹{cars.price.toLocaleString()}
+                    </span>
+                  </div>
+
+                  <div className="flex justify-between bg-slate-100 p-3 rounded-xl">
+                    <span>⛽ Mileage</span>
+                    <span className="font-bold text-blue-600">
+                      {cars.mileage} km/l
+                    </span>
+                  </div>
+                </div>
+
+                <button className="w-full mt-6 py-3 rounded-xl font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 transition-all">
+                  View Details →
+                </button>
+              </div>
             </div>
           );
         })}
